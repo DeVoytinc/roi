@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:roi/logic/getdata.dart';
+import 'package:roi/logic/initiative.dart';
 import 'package:roi/screens/login.dart';
 
 import '../main.dart';
@@ -19,10 +20,40 @@ TextStyle categoryTextStyle = TextStyle(
 
 );
 
+late List<Initiative> CurinitiativeList = PollInitiatives;
+
+void changeTabIndex(int index){
+  switch (index) {
+    case 0:
+      CurinitiativeList = PollInitiatives;
+      break;
+    case 1:
+      CurinitiativeList = AdvisementInitiative;
+      break;
+    case 2:
+      CurinitiativeList = CompleteInitiative;
+      break;
+    case 3:
+      CurinitiativeList = ArchieveInitiative;
+      break;
+    default:
+  }
+}
+
+Future<List<Initiative>> getALLInitiatives() async {
+  await getPollInitiatives(suggestons[indexSelectedRegion]);
+  await getAdvisementInitiative(suggestons[indexSelectedRegion]);
+  await getCompleteInitiative(suggestons[indexSelectedRegion]);
+  await getInitiativeArchieve(suggestons[indexSelectedRegion]);
+  // if (CurinitiativeList.isEmpty)
+  //   CurinitiativeList = PollInitiatives;
+  return CurinitiativeList;
+}
+
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    getData(suggestons[indexSelectedRegion]);
+    //getData(suggestons[indexSelectedRegion]);
     setMainSystemColors();
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 73,69,254),
@@ -68,28 +99,57 @@ class _HomeState extends State<Home> {
                         IconButton(onPressed: (){}, icon: Icon(Icons.sort, color: Colors.white,)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Center(child: Text('На голосовании', style: categoryTextStyle,)),
+                          child: Center(
+                            child: TextButton(
+                              onPressed: () { 
+                                setState(() {
+                                changeTabIndex(0);
+                              });  
+                              },
+                              child: Text('На голосовании', style: categoryTextStyle,),
+                            )
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Center(child: Text('На рассмотрении', style: categoryTextStyle,)),
+                          child: Center(
+                            child: TextButton(
+                              onPressed: () { setState(() {
+                                changeTabIndex(1);
+                              });   },
+                              child: Text('На рассмотрении', style: categoryTextStyle,),
+                            )
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Center(child: Text('Решение принято', style: categoryTextStyle,)),
+                          child: Center(
+                            child: TextButton(
+                              onPressed: () { setState(() {
+                                changeTabIndex(2);
+                              });   },
+                              child: Text('Решение принято', style: categoryTextStyle,),
+                            )
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Center(child: Text('В архиве', style: categoryTextStyle,)),
+                          child: Center(
+                            child: TextButton(
+                              onPressed: () { setState(() {
+                                changeTabIndex(3);
+                              });   },
+                              child: Text('В архиве', style: categoryTextStyle,),
+                            )
+                          ),
                         ),
                         
                       ],
                     ),
                   ),
                   Expanded(
-                    
                     child: FutureBuilder(
-                      future: getData(suggestons[indexSelectedRegion]),
+                      future: getALLInitiatives(),
                       builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                         if (!snapshot.hasData){
                           return Column(
@@ -110,7 +170,7 @@ class _HomeState extends State<Home> {
                           );
                         }
                       return ListView.builder(
-                        itemCount: PollInitiatives.length,
+                        itemCount: CurinitiativeList.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
@@ -124,7 +184,7 @@ class _HomeState extends State<Home> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    PollInitiatives[index].title,
+                                    CurinitiativeList[index].title,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 20,
@@ -143,7 +203,7 @@ class _HomeState extends State<Home> {
                                           child: Padding(
                                             padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
                                             child: Text(
-                                              PollInitiatives[index].leveltitle,
+                                              CurinitiativeList[index].leveltitle,
                                               style: TextStyle(
                                                 color: Colors.black
                                               ),

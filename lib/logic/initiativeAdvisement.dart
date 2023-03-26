@@ -1,29 +1,31 @@
-class InitiativeAdvisement{
+import 'package:roi/logic/initiative.dart';
+
+class InitiativeAdvisement extends Initiative{
 
 //data Корневой элемент данных array
 late int id; //Идентификатор
-late String title; // Наименование инициативы 
+//late String title; // Наименование инициативы 
 //late List<Object> geo; // Информация о местоположении 
 late String geoarea; // Федеральный округ 
 late String georegion; // Регион 
 late String geomunicipality; // Муниципалитет
 //late List<Object> level;
 late int levelid;
-late String leveltitle;
+//late String leveltitle;
 //late List<Object> status;
 late int statusid;
 late String statustitle;
 
   InitiativeAdvisement(
      this.id,
-     this.title,
+     //this.title,
      //this.geo, 
      this.geoarea,
      this.georegion,
      this.geomunicipality,
      //this.level, 
      this.levelid, 
-     this.leveltitle, 
+     //this.leveltitle, 
      //this.status,
      this.statusid,
      this.statustitle,

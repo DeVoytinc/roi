@@ -1,22 +1,19 @@
 import 'initiative.dart';
 
-class InitiativeComplete extends Initiative{
+class InitiativeArchieve extends Initiative{
 
 //data Корневой элемент данных array
 late int id; //Идентификатор
 //late String title; // Наименование инициативы 
-//late List<Object> geo; // Информация о местоположении 
 late String geoarea; // Федеральный округ 
 late String georegion; // Регион 
 late String geomunicipality; // Муниципалитет
-//late List<Object> level;
 late int levelid;
 //late String leveltitle;
-//late List<Object> status;
 late int statusid;
 late String statustitle;
 
-  InitiativeComplete(
+  InitiativeArchieve(
      this.id,
      //this.title,
      //this.geo, 
@@ -31,7 +28,7 @@ late String statustitle;
      this.statustitle,
   );
 
-  InitiativeComplete.fromJson(Map<String, dynamic> json){
+  InitiativeArchieve.fromJson(Map<String, dynamic> json){
      id = json['id'];
      title = json['title'];
      //geo = json['geo'];
