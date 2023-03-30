@@ -195,13 +195,16 @@ class _HomeState extends State<Home> {
                                   children: [
                                     Hero(
                                       tag: 'titleInit' + index.toString(),
-                                      child: Text(
-                                        CurinitiativeList[index].title,
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black,
+                                      child: new Material(
+                                        color: Color.fromARGB(0, 0, 0, 0),
+                                        child: Text(
+                                          CurinitiativeList[index].title,
+                                          textAlign: TextAlign.left,
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w400,
+                                            color: Colors.black,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -218,10 +221,13 @@ class _HomeState extends State<Home> {
                                               ),
                                               child: Padding(
                                                 padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
-                                                child: Text(
-                                                  CurinitiativeList[index].leveltitle,
-                                                  style: TextStyle(
-                                                    color: Colors.black
+                                                child: new Material(
+                                                  color: Color.fromARGB(0, 0, 0, 0),
+                                                  child: Text(
+                                                    CurinitiativeList[index].leveltitle,
+                                                    style: TextStyle(
+                                                      color: Colors.black
+                                                    ),
                                                   ),
                                                 ),
                                               ),

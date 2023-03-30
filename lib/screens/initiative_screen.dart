@@ -30,14 +30,17 @@ class InitiativeScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 15.0),
                 child: Hero(
                   tag: 'titleInit' + index.toString(),
-                  child: Text(
-                    CurinitiativeList[index].title,
-                    style: TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                    ),
-                    ),
+                  child: new Material(
+                    child: Text(
+                      CurinitiativeList[index].title,
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black,
+                        
+                      ),
+                      ),
+                  ),
                 ),
               ),
               Padding(
@@ -70,10 +73,13 @@ class InitiativeScreen extends StatelessWidget {
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
-                          child: Text(
-                            CurinitiativeList[index].leveltitle,
-                            style: TextStyle(
-                              color: Colors.black
+                          child: Material(
+                            color: Color.fromARGB(0, 0, 0, 0),
+                            child: Text(
+                              CurinitiativeList[index].leveltitle,
+                              style: TextStyle(
+                                color: Colors.black
+                              ),
                             ),
                           ),
                         ),
