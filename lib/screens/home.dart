@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:roi/logic/getdata.dart';
 import 'package:roi/logic/initiative.dart';
+import 'package:roi/screens/initiative_screen.dart';
 import 'package:roi/screens/login.dart';
 
 import '../main.dart';
@@ -174,48 +175,65 @@ class _HomeState extends State<Home> {
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
                             padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: Colors.white,
-                              ),
-                              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    CurinitiativeList[index].title,
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400
-                                    ),
+                            child: GestureDetector(
+                              onTap: ()
+                              { 
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: ((context) => InitiativeScreen(index: index,))
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(20),
-                                            color: Colors.greenAccent,
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
-                                            child: Text(
-                                              CurinitiativeList[index].leveltitle,
-                                              style: TextStyle(
-                                                color: Colors.black
+                                );
+                              },
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white,
+                                ),
+                                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Hero(
+                                      tag: 'titleInit' + index.toString(),
+                                      child: Text(
+                                        CurinitiativeList[index].title,
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                                      child: Row(
+                                        children: [
+                                          Hero(
+                                            tag: 'initLevel' + index.toString(),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(20),
+                                                color: Colors.greenAccent,
+                                              ),
+                                              child: Padding(
+                                                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 5),
+                                                child: Text(
+                                                  CurinitiativeList[index].leveltitle,
+                                                  style: TextStyle(
+                                                    color: Colors.black
+                                                  ),
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        )
-                                      ],
+                                          )
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  //Text('На федеральном уровне запретить этим мелким спиногрызам самоликвидироваться путём прыжка рыбкой из окна десятиэтажки.')
-                          
-                                ],
+                                    //Text('На федеральном уровне запретить этим мелким спиногрызам самоликвидироваться путём прыжка рыбкой из окна десятиэтажки.')
+                                                      
+                                  ],
+                                ),
                               ),
                             ),
                           );

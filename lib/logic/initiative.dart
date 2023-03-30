@@ -1,20 +1,20 @@
 class Initiative{
 
 // //data Корневой элемент данных array
-// int id; //Идентификатор
+late int id; //Идентификатор
 // String code; //Номер инициативы 
-// String url; //Ссылка на инициативу 
+late String url; //Ссылка на инициативу 
 // List<Object> level; // Уровень инициативы 
 // int levelid; // Идентификатор уровня 
 late String leveltitle; // Наименование уровня 
 // List<Object> status; // Статус инициативы 
 // int statusid; // Идентификатор статуса 
-// String statustitle; // Наименование статуса 
+late String statustitle; // Наименование статуса 
 // List<Object> result; // Информация о решении по инициативе 
 // int resultid; // Идентификатор решения 
 // String resulttitle; // Наименование решения 
 late String title; // Наименование инициативы 
-// String description; // Описание инициативы
+late String description; // Описание инициативы
 // List<Object> attachment; // Дополнительные материалы 
 // List<Object> attachmentphoto; // Сопроводительные фотографии 
 // String attachmentphototitle; // Наименование фотографии 
@@ -23,19 +23,19 @@ late String title; // Наименование инициативы
 // String attachmentdocumenttitle; // Наименование документа 
 // String attachmentdocumenturl; // Ссылка на документ 
 // List<Object> decision; // Предлагаемое решение по инициативе 
-// String decisiontext; // Текст предлагаемого решения 
-// String prospective; // Описание проблемы 
+late String decisiontext; // Текст предлагаемого решения 
+late String prospective; // Описание проблемы 
 // List<Object> category; // Категория инициативы 
 // int categoryid; // Идентификатор категории 
-// String categorytitle; // Наименование категории 
+List<String> categorytitle = []; // Наименование категории 
 // List<Object> geo; // Информация о местоположении 
-// String geoarea; // Федеральный округ 
-// String georegion; // Регион 
+late String geoarea; // Федеральный округ 
+late String georegion; // Регион 
 // String geomunicipality; // Муниципалитет
 // List<Object> date; // Информация о датах инициативы 
 // List<Object> datepoll; // Дата публикации инициативы 
-// int datepollbegin; // Дата начала голосования  (Unix timestamp)
-// int datepollend; // Дата окончания голосования  (Unix timestamp)
+late int datepollbegin; // Дата начала голосования  (Unix timestamp)
+late int datepollend; // Дата окончания голосования  (Unix timestamp)
 // List<Object> vote; // Информация о голосах инициативы 
 // double voteprogress; // Прогресс набора необходимого порога голосов, % float
 // int votethreshold; // Порог голосов 
@@ -58,7 +58,7 @@ late String title; // Наименование инициативы
 //      this.resultid,
 //      this.resulttitle,
 //      this.title,
-//      this.description,  
+ //     this.description,  
 //      this.attachment,
 //      this.attachmentphoto,
 //      this.attachmentphototitle, 
@@ -87,5 +87,5 @@ late String title; // Наименование инициативы
 //      this.votenegative,
 //      this.authorship,
 //      this.authorshipid,
-//   );
+ //  );
 }
