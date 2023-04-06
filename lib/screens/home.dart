@@ -41,6 +41,7 @@ void changeTabIndex(int index){
   }
 }
 
+
 Future<List<Initiative>> getALLInitiatives() async {
   await getPollInitiatives(suggestons[indexSelectedRegion]);
   await getAdvisementInitiative(suggestons[indexSelectedRegion]);
@@ -67,7 +68,7 @@ class _HomeState extends State<Home> {
           Padding(
             padding: const EdgeInsets.only(left: 10.0),
             child: TextButton(
-              onPressed: (){}, 
+              onPressed: (){ Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: ((context) => Login())),(Route<dynamic> route) => false);}, 
               child: Text(
                 suggestons[indexSelectedRegion],
                 style: TextStyle(
@@ -97,7 +98,7 @@ class _HomeState extends State<Home> {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        IconButton(onPressed: (){}, icon: Icon(Icons.sort, color: Colors.white,)),
+                        //IconButton(onPressed: (){}, icon: Icon(Icons.sort, color: Colors.white,)),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
                           child: Center(
@@ -170,9 +171,31 @@ class _HomeState extends State<Home> {
                             ],
                           );
                         }
+                      if (CurinitiativeList.length == 0){
+                          return Center(
+                            child: Text(
+                              'Нет инициатив в этой категории',
+                              style: TextStyle(
+                                fontSize: 17,
+                                color: Colors.white,
+                              ),
+                            ),
+                          );
+                      }
                       return ListView.builder(
                         itemCount: CurinitiativeList.length,
                         itemBuilder: (BuildContext context, int index) {
+                          if (CurinitiativeList.length == 0){
+                            return Center(
+                              child: Text(
+                                'Нет инициатив в этой категории',
+                                style: TextStyle(
+                                  fontSize: 17,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            );
+                          }
                           return Padding(
                             padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
                             child: GestureDetector(
