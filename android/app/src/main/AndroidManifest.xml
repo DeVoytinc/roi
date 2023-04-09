@@ -2,7 +2,7 @@
     package="com.example.roi">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="roi"
+        android:label="Мои инициативы"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
