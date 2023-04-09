@@ -12,39 +12,39 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Color.fromARGB(255, 73,69,254),
+    systemNavigationBarColor: Color.fromARGB(255, 73, 69, 254),
     statusBarColor: Color.fromARGB(255, 255, 255, 255),
   ));
 
- if(await checkSavingRegion()){
-  await getRegion();
-  if (selectedRegion != null) {
-    isAlreadyLogin = true;
+  if (await checkSavingRegion()) {
+    await getRegion();
+    if (selectedRegion != null) {
+      isAlreadyLogin = true;
+    }
   }
- }
   runApp(const MyApp());
 }
 
-Future<bool> checkSavingRegion() async{
+Future<bool> checkSavingRegion() async {
   var prefs = await SharedPreferences.getInstance();
   return prefs.containsKey('region');
 }
 
-Future saveRegion() async{
+Future saveRegion() async {
   var prefs = await SharedPreferences.getInstance();
   prefs.setInt('region', selectedRegion!);
 }
 
-Future getRegion() async{
+Future getRegion() async {
   var prefs = await SharedPreferences.getInstance();
   selectedRegion = prefs.getInt('region');
   indexSelectedRegion = selectedRegion!;
 }
 
-void setMainSystemColors(){
+void setMainSystemColors() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     systemNavigationBarColor: Color.fromARGB(255, 164, 162, 255),
-    statusBarColor: Color.fromARGB(255, 73,69,254),
+    statusBarColor: Color.fromARGB(255, 73, 69, 254),
   ));
 }
 
@@ -66,4 +66,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
