@@ -1,16 +1,34 @@
-# roi
+# РОИ (Российская общественная инициатива)
 
-A new Flutter project.
+«Россиийская общеественная инициатива» — интернет-ресурс, на котором граждане России, авторизованные через поддерживаемую государством систему идентификации граждан ЕСИА, могут выдвигать различные гражданские инициативы либо голосовать за таковые. Инициативы рассматриваются если: на федеральном уровне и в субъектах России численностью населения более 2 млн. — не менее 100 000 (ста тысяч) голосов в поддержку инициативы; на региональном и муниципальном — не менее 5 % от численности зарегистрированного населения.
 
-## Getting Started
+## О репозитории
 
-This project is a starting point for a Flutter application.
+На этом репозитории находится проект Flutter для мобильного приложения который взаимодействует с API вышеупомянутого сервиса.
 
-A few resources to get you started if this is your first Flutter project:
+## Вход в приложение
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Для входа в приложение необходимо просто выбрать свой регион
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+|1st|2nd|
+|:---:|:---:|
+|![Screenshot_20231117_192430](https://github.com/DeVoytinc/roi/assets/89654464/0b740f44-826e-4a1c-a52f-22e8571fb590)|![Screenshot_20231117_192436](https://github.com/DeVoytinc/roi/assets/89654464/581ec594-ddd8-48f3-b455-c3b526ef3f98)|
+
+
+## Экран со списком инициатив
+
+Здесь можно просматривать список созданных инициатив и выбирать категории инициатив
+
+|1st|2nd|
+|:---:|:---:|
+|![Screenshot_20231117_192442](https://github.com/DeVoytinc/roi/assets/89654464/13963849-a56b-4b9e-ae78-89478b5f2f0d)|![Screenshot_20231117_192507](https://github.com/DeVoytinc/roi/assets/89654464/773cf4bc-61d8-4604-930d-573b229101ff)|
+
+
+## Экран со списком инициатив
+
+Просмотр инициативы
+
+|1st|2nd|
+|:---:|:---:|
+|![Screenshot_20231117_192520](https://github.com/DeVoytinc/roi/assets/89654464/0180fc09-e65c-4d1f-a5a8-c2310ba7661c)|![Screenshot_20231117_192523](https://github.com/DeVoytinc/roi/assets/89654464/7bf7bdaa-a65d-49db-b35d-3fd258ed5d44)|
+
